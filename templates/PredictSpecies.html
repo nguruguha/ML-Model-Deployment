@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Penguin Species Prediction</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Penguin Species Prediction</h1>
+		<form method="post" action="{{ url_for('predict')}}">
+			<div class="form-group">
+				<label for="select-island">Island:</label>
+				<select class="form-control" id="select-island" name="island" required>
+					<option value="" disabled selected>Select Island</option>
+					<option value="Torgersen">Torgersen</option>
+					<option value="Dream">Dream</option>
+					<option value="Biscoe">Biscoe</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="culmen-length">Culmen Length:</label>
+				<input type="number" class="form-control" id="culmen-length" name="culmen_length" placeholder="Enter Culmen Length (mm)" required>
+			</div>
+			<div class="form-group">
+				<label for="culmen-depth">Culmen Depth:</label>
+				<input type="number" class="form-control" id="culmen-depth" name="culmen_depth" placeholder="Enter Culmen Depth (mm)" required>
+			</div>
+			<div class="form-group">
+				<label for="flipper-length">Flipper Length:</label>
+				<input type="number" class="form-control" id="flipper-length" name="flipper_length" placeholder="Enter Flipper Length (mm)" required>
+			</div>
+			<div class="form-group">
+				<label for="body-mass">Body Mass:</label>
+				<input type="number" class="form-control" id="body-mass" name="body_mass" placeholder="Enter Body Mass (g)" required>
+			</div>
+			<div class="form-group">
+				<label for="select-sex">Sex:</label>
+				<select class="form-control" id="select-sex" name="sex" required>
+					<option value="" disabled selected>Select Sex</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Predict Species</button>
+		</form>
+		<br>
+		<div class="alert alert-success" role="alert">
+			{{ prediction_text }}
+		</div>
+	</div>
+</body>
+</html>
